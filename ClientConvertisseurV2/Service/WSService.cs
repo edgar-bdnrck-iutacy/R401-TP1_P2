@@ -33,9 +33,10 @@ namespace ClientConvertisseurV2.Services
             {
                 return await httpClient.GetFromJsonAsync<List<Devise>>(nomControleur);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                // TEMP debug : tu peux enlever après
+                throw new Exception($"Erreur appel API: {ex.Message}", ex);
             }
         }
     }

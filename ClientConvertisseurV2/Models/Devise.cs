@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ClientConvertisseurV2.Models
+﻿namespace ClientConvertisseurV2.Models
 {
     public class Devise
     {

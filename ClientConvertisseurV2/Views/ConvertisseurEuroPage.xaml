@@ -13,7 +13,7 @@
         <!-- Titre -->
         <TextBlock
         x:Name="TxtTitre"
-        Text="Convertisseur Euro"
+        Text="Convertisseur Euro MVVM"
         FontSize="28"
         FontWeight="SemiBold"
         RelativePanel.AlignHorizontalCenterWithPanel="True"
@@ -30,6 +30,9 @@
 
         <ComboBox
         x:Name="CmbDevises"
+        ItemsSource="{Binding Devises}"
+        SelectedItem="{Binding DeviseSelectionnee, Mode=TwoWay}"
+        DisplayMemberPath="Nom"
         Width="260"
         PlaceholderText="Sélectionner une devise"
         RelativePanel.Below="LblDevise"
@@ -48,28 +51,43 @@
         <TextBox
         x:Name="TxtMontantEuro"
         Width="260"
+        Text="{Binding MontantEuro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
         PlaceholderText="Ex : 100"
         RelativePanel.Below="LblEuro"
         RelativePanel.AlignHorizontalCenterWithPanel="True"
         Margin="0,0,0,18" />
+
 
         <!-- Bouton -->
         <Button
         x:Name="BtnConvertir"
         Content="Convertir"
         Width="260"
+        Command="{Binding ConvertirCommand}"
         RelativePanel.Below="TxtMontantEuro"
         RelativePanel.AlignHorizontalCenterWithPanel="True"
         Margin="0,0,0,18" />
+
 
         <!-- Résultat -->
         <TextBox
         x:Name="TxtMontantDevise"
         Width="260"
         IsReadOnly="True"
+        Text="{Binding MontantDevise}"
         PlaceholderText="Résultat"
         RelativePanel.Below="BtnConvertir"
         RelativePanel.AlignHorizontalCenterWithPanel="True" />
+
+        <TextBlock
+        Width="260"
+        Text="{Binding MessageErreur}"
+        TextWrapping="Wrap"
+        Foreground="Red"
+        RelativePanel.Below="TxtMontantDevise"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,8,0,0" />
+
 
     </RelativePanel>
 
