@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WSConvertisseur.Models
+namespace ClientConvertisseurV1.Models
 {
     public class Devise
     {

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using WSConvertisseur.Models;
+using ClientConvertisseurV1.Models;
 
 namespace ClientConvertisseurV1.Services
 {
@@ -12,3 +11,4 @@ namespace ClientConvertisseurV1.Services
         Task<List<Devise>> GetDevisesAsync(string nomControleur);
     }
 }
+
