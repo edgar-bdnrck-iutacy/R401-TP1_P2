@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="ClientConvertisseurV2.Views.ConvertisseurEuroPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV2.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel Padding="20">
+
+        <!-- Titre -->
+        <TextBlock
+        x:Name="TxtTitre"
+        Text="Convertisseur Euro"
+        FontSize="28"
+        FontWeight="SemiBold"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,10,0,20" />
+
+        <!-- Devise -->
+        <TextBlock
+        x:Name="LblDevise"
+        Text="Devise :"
+        FontSize="16"
+        RelativePanel.Below="TxtTitre"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,0,0,6" />
+
+        <ComboBox
+        x:Name="CmbDevises"
+        Width="260"
+        PlaceholderText="Sélectionner une devise"
+        RelativePanel.Below="LblDevise"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,0,0,18" />
+
+        <!-- Montant en euros -->
+        <TextBlock
+        x:Name="LblEuro"
+        Text="Montant en euros :"
+        FontSize="16"
+        RelativePanel.Below="CmbDevises"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,0,0,6" />
+
+        <TextBox
+        x:Name="TxtMontantEuro"
+        Width="260"
+        PlaceholderText="Ex : 100"
+        RelativePanel.Below="LblEuro"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,0,0,18" />
+
+        <!-- Bouton -->
+        <Button
+        x:Name="BtnConvertir"
+        Content="Convertir"
+        Width="260"
+        RelativePanel.Below="TxtMontantEuro"
+        RelativePanel.AlignHorizontalCenterWithPanel="True"
+        Margin="0,0,0,18" />
+
+        <!-- Résultat -->
+        <TextBox
+        x:Name="TxtMontantDevise"
+        Width="260"
+        IsReadOnly="True"
+        PlaceholderText="Résultat"
+        RelativePanel.Below="BtnConvertir"
+        RelativePanel.AlignHorizontalCenterWithPanel="True" />
+
+    </RelativePanel>
+
+</Page>
