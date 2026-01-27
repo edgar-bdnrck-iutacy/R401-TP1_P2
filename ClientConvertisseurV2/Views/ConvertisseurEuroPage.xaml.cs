@@ -10,10 +10,8 @@ namespace ClientConvertisseurV2.Views
         {
             InitializeComponent();
 
-            var vm = new ConvertisseurEuroViewModel();
-            DataContext = vm;
-
-            Loaded += async (_, __) => await vm.ChargerDevisesAsync();
+            ConvertisseurEuroViewModel convertisseurEuroViewwModel = new ConvertisseurEuroViewModel();
+            DataContext = convertisseurEuroViewwModel;
         }
     }
 }

@@ -1,86 +1,64 @@
-﻿using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using ClientConvertisseurV2.Models;
 using ClientConvertisseurV2.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace ClientConvertisseurV2.ViewModels
 {
-    public partial class ConvertisseurEuroViewModel : ObservableObject
+    public class ConvertisseurEuroViewModel : ObservableObject
     {
-        private readonly IService service;
-
-        public ObservableCollection<Devise> Devises { get; } = new();
-
-        [ObservableProperty]
+        private double montantEuro;
         private Devise? deviseSelectionnee;
+        private string? montantDevise;
 
-        [ObservableProperty]
-        private string montantEuro = "";
+        public ObservableCollection<Devise> Devises { get; set; }
+        public IRelayCommand BtnSetConversion { get; }
 
-        [ObservableProperty]
-        private string montantDevise = "";
+        public double MontantEuro
+        {
+            get => montantEuro;
+            set => SetProperty(ref montantEuro, value);
+        }
 
-        [ObservableProperty]
-        private string messageErreur = "";
+        public Devise? DeviseSelectionnee
+        {
+            get => deviseSelectionnee;
+            set => SetProperty(ref deviseSelectionnee, value);
+        }
+
+        public string? MontantDevise
+        {
+            get => montantDevise;
+            set => SetProperty(ref montantDevise, value);
+        }
 
         public ConvertisseurEuroViewModel()
         {
-            // ⚠️ Mets ICI le port de ton API
-            service = new WSService("https://localhost:5093/api/");
-            _ = ChargerDevisesAsync();
+            Devises = new ObservableCollection<Devise>();
+            BtnSetConversion = new RelayCommand(ActionSetConversion);
+            GetDataOnLoadAsync();
         }
 
-        [RelayCommand]
-        public async Task ChargerDevisesAsync()
+        public async void GetDataOnLoadAsync()
         {
-            MessageErreur = "";
+            WSService service = new WSService("http://localhost:5093/api/");
+            List<Devise>? result = await service.GetDevisesAsync("devises");
 
-            try
+            if (result != null)
             {
-                var devises = await service.GetDevisesAsync("devises");
-
-                if (devises == null || devises.Count == 0)
-                {
-                    MessageErreur = "Aucune devise reçue (liste vide).";
-                    return;
-                }
-
-                Devises.Clear();
-                foreach (var d in devises) Devises.Add(d);
-
-                DeviseSelectionnee = Devises[0];
-            }
-            catch (System.Exception ex)
-            {
-                MessageErreur = ex.Message; // tu verras la vraie cause (SSL/404/etc.)
+                foreach (var d in result) Devises.Add(d);
             }
         }
 
-        [RelayCommand]
-        public void Convertir()
+        private void ActionSetConversion()
         {
-            MessageErreur = "";
-            MontantDevise = "";
-
-            if (DeviseSelectionnee == null)
+            if (DeviseSelectionnee != null && MontantEuro != 0)
             {
-                MessageErreur = "Veuillez sélectionner une devise.";
-                return;
+                double resultat = MontantEuro * DeviseSelectionnee.Taux;
+                MontantDevise = resultat.ToString("N2");
             }
-
-            var input = (MontantEuro ?? "").Trim().Replace(',', '.');
-
-            if (!double.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out var euro))
-            {
-                MessageErreur = "Montant en euros invalide.";
-                return;
-            }
-
-            var resultat = euro * DeviseSelectionnee.Taux;
-            MontantDevise = resultat.ToString("0.00", CultureInfo.InvariantCulture);
         }
     }
 }

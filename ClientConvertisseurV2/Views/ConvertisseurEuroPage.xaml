@@ -63,7 +63,7 @@
         x:Name="BtnConvertir"
         Content="Convertir"
         Width="260"
-        Command="{Binding ConvertirCommand}"
+        Command="{Binding BtnSetConversion}"
         RelativePanel.Below="TxtMontantEuro"
         RelativePanel.AlignHorizontalCenterWithPanel="True"
         Margin="0,0,0,18" />
