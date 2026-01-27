@@ -32,7 +32,7 @@
         x:Name="CmbDevises"
         ItemsSource="{Binding Devises}"
         SelectedItem="{Binding DeviseSelectionnee, Mode=TwoWay}"
-        DisplayMemberPath="Nom"
+        DisplayMemberPath="NomDevise"
         Width="260"
         PlaceholderText="Sélectionner une devise"
         RelativePanel.Below="LblDevise"

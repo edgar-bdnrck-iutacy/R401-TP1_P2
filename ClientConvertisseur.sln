@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV1", "Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2", "ClientConvertisseurV2\ClientConvertisseurV2.csproj", "{025FD2EF-53D3-4A9D-927B-B2769EE75EB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2Tests1", "ClientConvertisseurV2Tests1\ClientConvertisseurV2Tests1.csproj", "{6372F784-7EC5-4B09-AA7B-232A84FFDF17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -53,6 +55,18 @@ Global
 		{025FD2EF-53D3-4A9D-927B-B2769EE75EB3}.Release|x86.ActiveCfg = Release|x86
 		{025FD2EF-53D3-4A9D-927B-B2769EE75EB3}.Release|x86.Build.0 = Release|x86
 		{025FD2EF-53D3-4A9D-927B-B2769EE75EB3}.Release|x86.Deploy.0 = Release|x86
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|x64.Build.0 = Debug|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|x86.ActiveCfg = Debug|x86
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Debug|x86.Build.0 = Debug|x86
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|ARM64.Build.0 = Release|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|x64.ActiveCfg = Release|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|x64.Build.0 = Release|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|x86.ActiveCfg = Release|Any CPU
+		{6372F784-7EC5-4B09-AA7B-232A84FFDF17}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

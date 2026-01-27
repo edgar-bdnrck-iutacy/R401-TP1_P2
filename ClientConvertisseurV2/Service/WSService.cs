@@ -27,6 +27,11 @@ namespace ClientConvertisseurV2.Services
             );
         }
 
+        public WSService(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
         public async Task<List<Devise>> GetDevisesAsync(string nomControleur)
         {
             try
